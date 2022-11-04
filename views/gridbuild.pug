@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  h1= title
+  p rows #{query.rows} columns #{query.cols} 
+  - let rows=Number(query.rows);
+  - let cols=Number(query.cols);
+  - if(!Number.isInteger(rows)){
+      p Rows value should be Integer
+  - }
+  -  if(!Number.isInteger(cols)){
+      p Colomns value should be Integer
+  -}
+  -  if(!(rows>=1 && rows<=10)){
+        p Rows should be in between 1 and 10
+  - }
+  -  if(!(cols>=1 && cols<=10)){
+        p Columns should be in between 1 and 10
+  - }
+  - if((rows>=1 && rows<=10)&&(cols>=1 && cols<=10)) {
+     table(class="table table-responsive")
+        - for(let i=0;i<rows;i++){
+            tr#middle
+                - for(let j=0;j<cols;j++){
+                    td= 1+i+(j*rows)
+                - }
+        - }
+  - } 
