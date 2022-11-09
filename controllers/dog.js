@@ -13,8 +13,15 @@ exports.dog_list = async function(req, res) {
 };
  
 // for a specific Dog. 
-exports.dog_detail = function(req, res) { 
-    res.send('NOT IMPLEMENTED: Dog detail: ' + req.params.id); 
+exports.dog_detail = async function(req, res) { 
+    console.log("detail"  + req.params.id) 
+    try { 
+        result = await Dog.findById( req.params.id) 
+        res.send(result) 
+    } catch (error) { 
+        res.status(500) 
+        res.send(`{"error": document for id ${req.params.id} not found`); 
+    } 
 }; 
  
 // Handle Dog create on POST. 
