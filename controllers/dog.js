@@ -31,3 +31,16 @@ exports.dog_delete = function(req, res) {
 exports.dog_update_put = function(req, res) { 
     res.send('NOT IMPLEMENTED: Dog update PUT' + req.params.id); 
 };
+
+// VIEWS 
+// Handle a show all view 
+exports.dog_view_all_Page = async function(req, res) { 
+    try{ 
+        theDogs = await Dog.find(); 
+        res.render('dog', { title: 'Dog Search Results', results: theDogs }); 
+    } 
+    catch(err){ 
+        res.status(500); 
+        res.send(`{"error": ${err}}`); 
+    }   
+}; 
