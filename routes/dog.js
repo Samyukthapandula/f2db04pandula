@@ -10,4 +10,11 @@ router.get('/', function(req, res, next) {
 /* GET dogs */ 
 router.get('/', dog_controlers.dog_view_all_Page ); 
 
+/* GET detail dog page */ 
+router.get('/detail', dog_controlers.dog_view_one_Page);
+
+
+/* GET create dog page */ 
+router.get('/create', dog_controlers.dog_create_Page); 
+
 module.exports = router;

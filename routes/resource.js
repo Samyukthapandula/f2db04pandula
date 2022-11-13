@@ -30,6 +30,9 @@ router.put('/dogs/:id', dog_controller.dog_update_put);
 router.get('/dogs', dog_controller.dog_list); 
 
 /* GET detail dog page */ 
-router.get('/detail', dog_controller.dog_view_one_Page); 
+router.get('/detail', dog_controller.dog_view_one_Page);
+
+/* GET create dog page */ 
+router.get('/create', dog_controller.dog_create_Page); 
  
 module.exports = router;
