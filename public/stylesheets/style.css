@@ -11,3 +11,13 @@ a {
   background-color: aquamarine; 
   width: 120px; 
 } 
+
+.dogcrAttr { 
+   width: 120px; 
+} 
+
+.form-group-create {
+  width:fit-content;
+  background-color: #f2f2f2;
+  padding: 5px;
+}
