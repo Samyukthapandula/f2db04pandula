@@ -2,10 +2,10 @@ extends layout
 
 block content
   h1= title
-  -let results=[{Dog_age:2,Dog_breed:"Bulldog",Dog_speciality:"Courageous" },{Dog_age:3, Dog_breed: "Chow Chow", Dog_speciality:"Loyal companion" },{Dog_age:5, Dog_breed: "German Shepherd", Dog_speciality:"Large and strong dog" }]
+  -let items=results
   div(class="container-fluid")
   div(class="row")
-    each dog,index in results
+    each dog,index in items
      div(class="col-sm-2" onclick=`buy(${index})`) #{dog.Dog_age}- #{dog.Dog_breed}- #{dog.Dog_speciality}
     script.
       function buy(dogno){
