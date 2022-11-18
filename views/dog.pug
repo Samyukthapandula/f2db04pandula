@@ -4,10 +4,12 @@ block content
   h1= title
   -let items=results
   div(class="container-fluid")
-  div(class="row")
-    each dog,index in items
-     div(class="col-sm-2" onclick=`buy(${index})`) #{dog.Dog_age}- #{dog.Dog_breed}- #{dog.Dog_speciality}
-    script.
-      function buy(dogno){
-        alert(`You purchased Item ${dogno+1}`)
-      }
+  div(class="row m-1")
+    each dog in items
+     - let destination = `dispatch(\"/dog/update?id=${dog._id}\")`
+      div(class="row-sm-2", class="m-1") dog #{dog.Dog_age}(#{dog.Dog_breed}) is #{dog.Dog_speciality}
+       button.btn( class="btn-primary ml-1", onclick= destination) Update
+  script.
+    function dispatch(path){ 
+     window.location.href=path 
+    } 
