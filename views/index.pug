@@ -1,16 +1,13 @@
-extends layout
-
-block content
-  h1= title
-  p This is #{title} generator.
-  button(type="button", class="btn btn-primary",onclick="doBump()") Press me
-  div(id="bump") Bump the count
-  script.
-    var count=0;
-    var bump=1;
-    function doBump(){
-      count=count+bump;
-      bump=bump+1;
-      document.getElementById("bump").innerHTML="Count "+count+" with Bump "+bump;
-    }
-  a(href="dog") dog
+extends layout 
+ 
+block content 
+  if (!user) 
+    a(href="/login") Login 
+    br 
+    a(href="/register") Register 
+  if (user) 
+    p You are currently logged in as #{user.username} 
+    a(href="/dog") Take me to dogs 
+    br 
+    a(href="/logout") Logout 
+  
